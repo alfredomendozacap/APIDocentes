@@ -2,13 +2,13 @@
 require_once('./db.php');
 
 // getStudents() obtiene a todos los docentes
-function getTeachers()
+function getTeachers($query,$data=[])
 {
   try {
-    $query = "SELECT id, cargo, perfil, ubigeo, institucion, nombres, apellidos, email, celular FROM docente";
     $db = getConnection();
-    $stmt = $db->query($query);
-    if ($stmt) {
+    $stmt = $db->prepare($query);
+    $exec = $stmt->execute($data);
+    if ($exec) {
       $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
       header('Content-Type: application/json');
       header($_SERVER["SERVER_PROTOCOL"] . ' 200 Ok');
@@ -33,4 +33,14 @@ function infoMessage($msg, $code, $status)
   return json_encode($err, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
 }
 
-echo getTeachers();
+## Ejecución de la función de consulta
+$query = "SELECT id, cargo, perfil, ubigeo, institucion, nombres, apellidos, email, celular FROM docente";
+
+if (isset($_GET['perfil'])) {
+  $profile = $_GET['perfil'];
+  $query .= " WHERE perfil=?";
+  echo getTeachers($query, [$profile]);
+} else {
+
+  echo getTeachers($query);
+}

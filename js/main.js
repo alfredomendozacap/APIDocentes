@@ -16,14 +16,15 @@ const template = ({cargo, perfil, ubigeo, institucion, nombres, apellidos, email
   `
 }
 
-const getTeachers = async () => {
-  const res = await fetch(API_URL)
+const getTeachers = async (params) => {
+  const res = await fetch(API_URL+params)
   const data = await res.json()
   return data
 }
 
-const showData = async () => {
-  const teachers = await getTeachers()
+const showData = async (params = '') => {
+  tBody.innerHTML = ''
+  const teachers = await getTeachers(params)
   teachers.forEach(teacher => {
     const register = document.createElement('tr')
     register.id = teacher.id
@@ -31,5 +32,4 @@ const showData = async () => {
     tBody.appendChild(register)
   });
 }
-showData()
 

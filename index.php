@@ -49,8 +49,8 @@
       <div class="col-sm-2">
         <select name="perfil" id="perfil" aria-controls="example1" class="form-control input-sm">
           <option value="">PERFIL</option>
-          <option value="docente">DOCENTE</option>
-          <option value="administrativo">ADMINISTRATIVO</option>
+          <option value="DOCENTE">DOCENTE</option>
+          <option value="ADMINISTRATIVO">ADMINISTRATIVO</option>
           <option value="CAS">CAS</option>
         </select>
       </div>
@@ -96,13 +96,14 @@
         </tr>
       </thead>
       <tbody id="Registers">
-        
+
       </tbody>
     </table>
   </section>
   <!-- SCRIPTS JS-->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="./js/main.js"></script>
+  <script src="./js/filter.js"></script>
 </body>
 
 </html>
