@@ -81,9 +81,28 @@
   </form>
   <section id="tabla_resultado">
     <!-- AQUI SE DESPLEGARA NUESTRA TABLA DE CONSULTA -->
+    <table class="table">
+      <thead>
+        <tr class="bg-primary">
+          <th>CARGO</th>
+          <th>PERFIL</th>
+          <th>UBIGEO</th>
+          <th>I.E/ OTRA UBICACION</th>
+          <th>NOMBRES</th>
+          <th>APELLIDOS</th>
+          <th>EMAIL</th>
+          <th>CELULAR</th>
+          <th><label><input type="checkbox">TODOS</label></th>
+        </tr>
+      </thead>
+      <tbody id="Registers">
+        
+      </tbody>
+    </table>
   </section>
   <!-- SCRIPTS JS-->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="./js/main.js"></script>
 </body>
 
 </html>
